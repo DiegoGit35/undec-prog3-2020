@@ -1,0 +1,7 @@
+package dominio;
+
+public class CalcularIVA{
+	public double ClcularIVA(Fruta f) {
+		return f.precio*0.21;
+	}
+}
