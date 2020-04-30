@@ -8,6 +8,8 @@
 	<classpathentry kind="src" path="SRP"/>
 	<classpathentry kind="src" path="OCP"/>
 	<classpathentry kind="src" path="LSP"/>
+	<classpathentry kind="src" path="DIP"/>
+	<classpathentry kind="src" path="ISP"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
