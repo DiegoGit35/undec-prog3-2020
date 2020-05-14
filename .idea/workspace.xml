@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="68fb10e0-d22b-437f-a8fd-a039dcecdd67" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1bb6xAOtkp3Vg4ULcEKGV4NT1ID" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="68fb10e0-d22b-437f-a8fd-a039dcecdd67" name="Default Changelist" comment="" />
+      <created>1588888691651</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588888691651</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="127" width="430" height="482" key="FileChooserDialogImpl" timestamp="1589349923783">
+      <screen x="0" y="0" width="1366" height="741" />
+    </state>
+    <state x="463" y="127" width="430" height="482" key="FileChooserDialogImpl/0.0.1366.741@0.0.1366.741" timestamp="1589349923783" />
+    <state x="99" y="0" width="1163" height="739" key="new project wizard" timestamp="1589495830396">
+      <screen x="0" y="0" width="1366" height="741" />
+    </state>
+    <state x="99" y="0" width="1163" height="739" key="new project wizard/0.0.1366.741@0.0.1366.741" timestamp="1589495830396" />
+  </component>
+</project>
