@@ -11,17 +11,35 @@ class AerolineaTest {
 
     @Test
     void test01getCuit() throws ExceptionAerolinea {
-        GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
-        Aerolinea al = new Aerolinea("30-64140555-4", "ar", "Aerolíneas Argentinas", f1);
-        assertEquals("30-64140555-4", al.getCuit());
+        try {
+            GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
+            Aerolinea al = new Aerolinea("30-64140555-4", "ar", "Aerolíneas Argentinas", f1);
+            assertEquals("30-64140555-4", al.getCuit());
+        }catch (ExceptionAerolinea e){
+            assertEquals("el cuit no puede ser Nulo", e.getMessage());
+        }
+    }
+
+    @Test
+    void test02getCuit() throws ExceptionAerolinea {
+        try {
+            GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
+            Aerolinea al = new Aerolinea(null, "ar", "Aerolíneas Argentinas", f1);
+        }catch (ExceptionAerolinea e){
+            assertEquals("el cuit no puede ser Nulo", e.getMessage());
+        }
     }
 
     @Test
     void test03setCuit() throws ExceptionAerolinea {
-        GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
-        Aerolinea al = new Aerolinea("a30-64140555-4", "ar", "Aerolíneas Argentinas", f1);
-        al.setCuit("30-64140555-3");
-        assertEquals("30-64140555-3", al.getCuit());
+        try{
+            GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
+            Aerolinea al = new Aerolinea("a30-64140555-4", "ar", "Aerolíneas Argentinas", f1);
+            al.setCuit("30-64140555-3");
+            assertEquals("30-64140555-3", al.getCuit());
+        }catch (ExceptionAerolinea e){
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -68,6 +86,8 @@ class AerolineaTest {
         al.setFecha(2019, 9, 11);
         assertEquals("11/10/2019", al.getFecha());
     }
+
+//    12. Cargar una aerolínea nueva
     @Test
     void test11addAerolinea() throws ExceptionAerolinea {
         GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
@@ -83,6 +103,8 @@ class AerolineaTest {
         ga.addAerolinea(al);
         assertEquals(1, ga.cantAerolineas());
     }
+
+//    14. Buscar aerolíneas por nombre
     @Test
     void test12buscarAerolineaxNombre() throws ExceptionAerolinea {
         GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);

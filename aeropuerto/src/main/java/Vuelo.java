@@ -18,7 +18,7 @@ public class Vuelo {
 
 
     public Aerolinea aerolinea;
-    static int n = 0;
+    public int n = 0;
 
     public Vuelo(GregorianCalendar salida, GregorianCalendar arribo, Aeropuerto aeropuertoSal, Aeropuerto aeropuertoDest, Avion avion, List tripulacion, Aerolinea aerolinea) throws ExceptionVuelo {
         this.codVuelo = codVuelo;
@@ -32,11 +32,11 @@ public class Vuelo {
     }
 
 
-    public String getCodVuelo(Aerolinea al) {
+    public String getCodVuelo() {
         String cod = new String();
         n++;
         String cadena = String.valueOf(n);
-        cod = al.CodIATA + " " + LPAD(cadena, 4, "0");
+        cod = this.aerolinea.CodIATA + " " + LPAD(cadena, 4, "0");
         return cod;
     }
 

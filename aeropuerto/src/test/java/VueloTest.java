@@ -33,9 +33,9 @@ class VueloTest {
         t.add(p);
         t.add(Cop);
         Vuelo v = new Vuelo(hSalida, hLlegada, apSalida, apDestino, a, t, al);
-        assertEquals("AR 0001", v.getCodVuelo(al));
+        assertEquals("AR 0001", v.getCodVuelo());
         Vuelo v2 = new Vuelo(hSalida, hLlegada, apSalida, apDestino, a, t, al);
-        assertEquals("AR 0002", v.getCodVuelo(al));
+        assertEquals("AR 0002", v.getCodVuelo());
     }
 
     @Test
@@ -138,6 +138,7 @@ class VueloTest {
         assertEquals(lp, v.getTripulacion());
     }
 
+//    21. Cambiar el comandante de un vuelo
     @Test
     void test13setPiloto() throws ExceptionPiloto, ExceptionVuelo {
         Piloto p2 = new Piloto("30-64140555-4", 1234321, "estrada", "diego", fPiloto, RolTripulacion.PILOTO);
@@ -150,6 +151,7 @@ class VueloTest {
         v.setTripulacion(lp);
     }
 
+//    22. Cambiar el copiloto de un vuelo
     @Test
     void test14setCoPiloto() throws ExceptionPiloto, ExceptionVuelo {
         Piloto cop2 = new Piloto("30-64140555-4", 1234321, "estrada", "diego", fPiloto, RolTripulacion.COPILOTO);
@@ -194,6 +196,7 @@ class VueloTest {
         lv.add(v3);
         assertEquals(lv, gv.buscarVuelosXfecha(fecha));
     }
+
 //    25 Buscar vuelos por aerolínea
     @Test
     void test17buscarVuelosXAerolinea() throws ExceptionAerolinea, ExceptionVuelo {

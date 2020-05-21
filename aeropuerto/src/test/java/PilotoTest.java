@@ -16,19 +16,37 @@ class PilotoTest {
         assertEquals("30-64140555-4", p.getCuil());
     }
 
-//    @Test
-//    void test02getCuil() throws ExceptionPiloto {
-//        GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
-//        Piloto p = new Piloto("11111111111", 1234321, "Estrada", "Diego", f1);
-//        assert("Error, el cuil debe tener la estructura XX-XXXXXXXX-X", p.getCuil());
-//    }
+    @Test
+    void test02getCuil() throws ExceptionPiloto {
+        try {
+            GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
+            Piloto p = new Piloto("", 1234321, "Estrada", "Diego", f1, RolTripulacion.PILOTO);
+            fail();
+        }catch(ExceptionPiloto e){
+            assertEquals("el cuil no puede ser vacio", e.getMessage());
+        }
+    }
+    @Test
+    void test03getCuil() throws ExceptionPiloto {
+        try {
+            GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
+            Piloto p = new Piloto(null, 1234321, "Estrada", "Diego", f1, RolTripulacion.PILOTO);
+            fail();
+        }catch(ExceptionPiloto e){
+            assertEquals("el cuil no puede ser Nulo", e.getMessage());
+        }
+    }
 
-//    @Test
-//    void test03getCuil() throws ExceptionPiloto {
-//        GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
-//        Piloto p = new Piloto("11111111111", 1234321, "Estrada", "Diego", f1);
-//        assertEquals("Error, el cuil debe estar formado por numeros y guiones", p.getCuil());
-//    }
+    @Test
+    void test04getCuil() throws ExceptionPiloto {
+        try {
+            GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
+            Piloto p = new Piloto("121623426", 1234321, "Estrada", "Diego", f1, RolTripulacion.PILOTO);
+            fail();
+        }catch(ExceptionPiloto e){
+            assertEquals("Error, el cuil debe tener la estructura XX-XXXXXXXX-X", e.getMessage());
+        }
+    }
 
     @Test
     void test04setCuil() throws ExceptionPiloto {
@@ -84,6 +102,7 @@ class PilotoTest {
         assertEquals("Leonardo", p.getNombre());
     }
 
+//    6. Cargar un piloto nuevo
     @Test
     void test11addPiloto() throws ExceptionPiloto{
         Aerolinea al = new Aerolinea();
@@ -98,6 +117,8 @@ class PilotoTest {
         al.addPiloto(p3);
         assertEquals(3, al.cantPilotos());
     }
+
+//    8. Consultar pilotos
     @Test
     void test12getPilotos() throws ExceptionPiloto {
         Aerolinea al = new Aerolinea();
@@ -116,6 +137,8 @@ class PilotoTest {
         lp.add(p3);
         assertEquals(lp, al.getPilotos());
     }
+
+//    9. Buscar un piloto por legajo
     @Test
     void test13buscarPilotoxLegajo() throws ExceptionPiloto {
         Aerolinea al = new Aerolinea();
@@ -132,6 +155,8 @@ class PilotoTest {
         lp.add(p3);
         assertEquals(lp, al.buscarPilotoxLegajo("30-64149492-3"));
     }
+
+//    10. Buscar pilotos por apellido
     @Test
     void test14buscarPilotoxApellido() throws ExceptionPiloto {
         Aerolinea al = new Aerolinea();

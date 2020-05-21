@@ -1,4 +1,5 @@
 import exceptions.ExceptionAeropuerto;
+import exceptions.ExceptionPiloto;
 
 public class Aeropuerto {
     public String codIATA;
@@ -7,10 +8,26 @@ public class Aeropuerto {
     public int codPostal;
 
     public Aeropuerto(String codIATA, String nombre, String ciudad, int codPostal) throws ExceptionAeropuerto {
-        this.codIATA = codIATA.toUpperCase();
+        if(validarCodIATA(codIATA.toUpperCase())) {
+            this.codIATA = codIATA;
+        }
         this.nombre = capitalize(nombre);
         this.ciudad = capitalize(ciudad);
         this.codPostal = codPostal;
+    }
+
+    private boolean validarCodIATA(String iata) throws ExceptionAeropuerto {
+        if(iata == null) {
+            throw new ExceptionAeropuerto("El codigo iata no debe ser nulo");
+        }
+        if(iata == "") {
+            throw new ExceptionAeropuerto("El codigo iata no debe estar vacio");
+        }
+        if(iata.matches("[A-Z]-[0-9]-[0-9]") || iata.matches("[0-9]-[A-Z]-[0-9]") || iata.matches("[0-9]-[0-9]-[A-Z]"))
+        {
+            throw new ExceptionAeropuerto("El codigo iata no debe contener numeros");
+        }
+        return true;
     }
 
     private String capitalize(String nombre) {

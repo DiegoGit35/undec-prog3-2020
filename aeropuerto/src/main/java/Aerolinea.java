@@ -1,4 +1,6 @@
 import exceptions.ExceptionAerolinea;
+import exceptions.ExceptionAvion;
+import exceptions.ExceptionPiloto;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,6 +21,16 @@ public class Aerolinea {
         CodIATA = codIATA.toUpperCase();
         this.nombre = capitalize(nombre);
         this.fecha = fecha;
+    }
+
+    private boolean validarCuit(String cuit) throws ExceptionPiloto {
+        if (cuit == null) {
+            throw new ExceptionPiloto("el cuit no puede ser Nulo");
+        }
+        if (cuit == "") {
+            throw new ExceptionPiloto("el cuit no puede estar vacio");
+        }
+        return true;
     }
 
     public Aerolinea() {

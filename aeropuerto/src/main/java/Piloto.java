@@ -45,6 +45,10 @@ public class Piloto {
         {
             throw new ExceptionPiloto("el cuil no puede ser vacio");
         }
+        if(cuil.matches("[a-zA-Z]{2}-[0-9]{8}-[0-9]") || cuil.matches("[0-9]{2}-[a-zA-Z]{8}-[0-9]") || cuil.matches("[0-9]{2}-[0-9]{8}-[a-zA-Z]"))
+        {
+            throw new ExceptionPiloto("El cuil no debe contener letras");
+        }
         if(!cuil.contains("-"))
         {
             throw new ExceptionPiloto("Error, el cuil debe tener la estructura XX-XXXXXXXX-X");

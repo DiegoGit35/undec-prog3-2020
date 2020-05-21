@@ -8,7 +8,12 @@ public class GestorVuelo {
     List<Vuelo> misVuelos = new ArrayList<Vuelo>();
 
     public void addVuelo(Vuelo v2) {
-        misVuelos.add(v2);
+        boolean bandera = false;
+        for(Vuelo v : misVuelos)
+            if(v.getCodVuelo().contains(v2.getCodVuelo()))
+                bandera = true;
+        if(bandera == false)
+            misVuelos.add(v2);
     }
 
     public int cantVuelos() {
