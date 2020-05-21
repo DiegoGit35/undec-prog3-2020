@@ -1,3 +1,4 @@
+import exceptions.ExceptionAeropuerto;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,6 +10,10 @@ class AeropuertoTest {
     Aeropuerto a = new Aeropuerto("EZE", "Ezeiza", "Chilecito", 5360);
     Aeropuerto a2 = new Aeropuerto("ALP", "Aeropuerto La Plata", "La Plata", 5132);
     Aeropuerto a3 = new Aeropuerto("ALR", "Aeropuerto La Rioja", "La Rioja", 6421);
+
+    AeropuertoTest() throws ExceptionAeropuerto {
+    }
+
     @Test
     void test01getCodIATA() {
         assertEquals("EZE", a.getCodIATA());
@@ -26,7 +31,7 @@ class AeropuertoTest {
     }
 
     @Test
-    void test04setNombre() {
+    void test04setNombre() throws ExceptionAeropuerto {
         Aeropuerto a = new Aeropuerto("EZE", "Ezeiza", "Chilecito", 5360);
         a.setNombre("Aeropuerto la rioja");
         assertEquals("Aeropuerto La Rioja", a.getNombre());

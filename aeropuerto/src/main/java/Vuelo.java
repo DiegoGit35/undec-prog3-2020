@@ -1,4 +1,9 @@
+import exceptions.ExceptionVuelo;
+
+import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -9,10 +14,13 @@ public class Vuelo {
     public Aeropuerto aeropuertoSal;
     public Aeropuerto aeropuertoDest;
     public Avion avion;
-    public List tripulacion;
-    public Aerolinea aerolinea;
+    public List<Piloto> tripulacion;
 
-    public Vuelo(GregorianCalendar salida, GregorianCalendar arribo, Aeropuerto aeropuertoSal, Aeropuerto aeropuertoDest, Avion avion, List tripulacion, Aerolinea aerolinea) {
+
+    public Aerolinea aerolinea;
+    static int n = 0;
+
+    public Vuelo(GregorianCalendar salida, GregorianCalendar arribo, Aeropuerto aeropuertoSal, Aeropuerto aeropuertoDest, Avion avion, List tripulacion, Aerolinea aerolinea) throws ExceptionVuelo {
         this.codVuelo = codVuelo;
         this.salida = salida;
         this.arribo = arribo;
@@ -23,26 +31,50 @@ public class Vuelo {
         this.aerolinea = aerolinea;
     }
 
-    public String getCodVuelo() {
-        return codVuelo;
+
+    public String getCodVuelo(Aerolinea al) {
+        String cod = new String();
+        n++;
+        String cadena = String.valueOf(n);
+        cod = al.CodIATA + " " + LPAD(cadena, 4, "0");
+        return cod;
     }
 
-    public void setCodVuelo(String codVuelo) {
-        codVuelo = codVuelo;
-    }
-
-    public GregorianCalendar getSalida() {
+    public static String LPAD(String cadena, int cantDigitos, String caracter) {
+        String salida=cadena;
+        for (int i = 1; i <= cantDigitos-cadena.length(); i++)
+            salida=caracter+salida;
         return salida;
     }
 
-    public void setSalida(int h, int m) {
+    public String getSalida() {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        return sdf.format(this.salida.getTime());
     }
 
-    public GregorianCalendar getArribo() {
-        return arribo;
+    public void setSalida(int a, int mes, int d, int h, int m) {
+        this.salida.set(Calendar.YEAR, a);
+        this.salida.set(Calendar.MONTH, mes);
+        this.salida.set(Calendar.DAY_OF_MONTH, d);
+        this.salida.set(Calendar.HOUR, h);
+        this.salida.set(Calendar.MINUTE, m);
     }
 
-    public void setArribo(int h, int m) {
+    public String getArribo() {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        return sdf.format(this.arribo.getTime());
+    }
+    public String getFechaSalida() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(this.salida.getTime());
+    }
+
+    public void setArribo(int a, int mes, int d, int h, int m) {
+        this.arribo.set(Calendar.YEAR, a);
+        this.arribo.set(Calendar.MONTH, mes);
+        this.arribo.set(Calendar.DAY_OF_MONTH, d);
+        this.arribo.set(Calendar.HOUR, h);
+        this.arribo.set(Calendar.MINUTE, m);
     }
 
     public Aeropuerto getAeropuertoSal() {
@@ -86,5 +118,8 @@ public class Vuelo {
     }
 
 
+    public int cantPilotos() {
+        return tripulacion.size();
+    }
 
 }

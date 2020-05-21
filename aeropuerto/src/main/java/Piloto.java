@@ -9,8 +9,9 @@ public class Piloto {
     public String apellido;
     public String nombre;
     public GregorianCalendar fecha;
+    public Enum <RolTripulacion> rol;
 
-    public Piloto(String cuil, int legajo, String apellido, String nombre, GregorianCalendar f1) throws ExceptionPiloto {
+    public Piloto(String cuil, int legajo, String apellido, String nombre, GregorianCalendar f1, Enum rol) throws ExceptionPiloto {
         if (validarCuil(cuil)){
             this.cuil = cuil.replace(" ", "");
         }
@@ -18,6 +19,11 @@ public class Piloto {
         this.apellido = capitalize(apellido);
         this.nombre = capitalize(nombre);
         this.fecha = f1;
+        this.rol = rol;
+    }
+
+    public Piloto() {
+
     }
 
     private String capitalize(String nombre) {

@@ -1,3 +1,4 @@
+import exceptions.ExceptionAerolinea;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,14 +10,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class AerolineaTest {
 
     @Test
-    void test01getCuit() {
+    void test01getCuit() throws ExceptionAerolinea {
         GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
         Aerolinea al = new Aerolinea("30-64140555-4", "ar", "Aerolíneas Argentinas", f1);
         assertEquals("30-64140555-4", al.getCuit());
     }
 
     @Test
-    void test03setCuit() {
+    void test03setCuit() throws ExceptionAerolinea {
         GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
         Aerolinea al = new Aerolinea("a30-64140555-4", "ar", "Aerolíneas Argentinas", f1);
         al.setCuit("30-64140555-3");
@@ -24,14 +25,14 @@ class AerolineaTest {
     }
 
     @Test
-    void test04getCodIATA() {
+    void test04getCodIATA() throws ExceptionAerolinea {
         GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
         Aerolinea al = new Aerolinea("30-64140555-4", "ar", "Aerolíneas Argentinas", f1);
         assertEquals("AR", al.getCodIATA());
     }
 
     @Test
-    void test06setCodIATA() {
+    void test06setCodIATA() throws ExceptionAerolinea {
         GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
         Aerolinea al = new Aerolinea("a30-64140555-4", "ar", "Aerolíneas Argentinas", f1);
         al.setCodIATA("as");
@@ -39,14 +40,14 @@ class AerolineaTest {
     }
 
     @Test
-    void test07getNombre() {
+    void test07getNombre() throws ExceptionAerolinea {
         GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
         Aerolinea al = new Aerolinea("30-64140555-4", "ar", "Aerolíneas Argentinas", f1);
         assertEquals("Aerolíneas Argentinas", al.getNombre());
     }
 
     @Test
-    void test08setNombre() {
+    void test08setNombre() throws ExceptionAerolinea {
         GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
         Aerolinea al = new Aerolinea("30-64140555-4", "ar", "Aerolíneas Argentinas", f1);
         al.setNombre("Alas del Sur");
@@ -54,21 +55,21 @@ class AerolineaTest {
     }
 
     @Test
-    void test09getFecha() {
+    void test09getFecha() throws ExceptionAerolinea {
         GregorianCalendar f1 = new GregorianCalendar(1996, 10, 27);
         Aerolinea al = new Aerolinea("30-64140555-4", "ar", "Aerolíneas Argentinas", f1);
         assertEquals("27/11/1996", al.getFecha());
     }
 
     @Test
-    void test10SetFecha() {
+    void test10SetFecha() throws ExceptionAerolinea {
         GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
         Aerolinea al = new Aerolinea("30-64140555-4", "ar", "Aerolíneas Argentinas", f1);
         al.setFecha(2019, 9, 11);
         assertEquals("11/10/2019", al.getFecha());
     }
     @Test
-    void test11addAerolinea() {
+    void test11addAerolinea() throws ExceptionAerolinea {
         GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
         GregorianCalendar f2 = new GregorianCalendar(1983, 04, 13);
         GregorianCalendar f3 = new GregorianCalendar(2000, 06, 06);
@@ -83,7 +84,7 @@ class AerolineaTest {
         assertEquals(1, ga.cantAerolineas());
     }
     @Test
-    void test12buscarAerolineaxNombre() {
+    void test12buscarAerolineaxNombre() throws ExceptionAerolinea {
         GregorianCalendar f1 = new GregorianCalendar(1996, 11, 27);
         GregorianCalendar f2 = new GregorianCalendar(1983, 04, 13);
         GregorianCalendar f3 = new GregorianCalendar(2000, 06, 06);

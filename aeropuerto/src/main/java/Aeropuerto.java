@@ -1,10 +1,12 @@
+import exceptions.ExceptionAeropuerto;
+
 public class Aeropuerto {
     public String codIATA;
     public String nombre;
     public String ciudad;
     public int codPostal;
 
-    public Aeropuerto(String codIATA, String nombre, String ciudad, int codPostal) {
+    public Aeropuerto(String codIATA, String nombre, String ciudad, int codPostal) throws ExceptionAeropuerto {
         this.codIATA = codIATA.toUpperCase();
         this.nombre = capitalize(nombre);
         this.ciudad = capitalize(ciudad);

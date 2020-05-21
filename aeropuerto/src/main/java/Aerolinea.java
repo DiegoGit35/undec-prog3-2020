@@ -1,3 +1,5 @@
+import exceptions.ExceptionAerolinea;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -12,7 +14,7 @@ public class Aerolinea {
     private List<Avion> misAviones = new ArrayList<Avion>();
     private List<Piloto> misPilotos = new ArrayList<Piloto>();
 
-    public Aerolinea(String cuit, String codIATA, String nombre, GregorianCalendar fecha) {
+    public Aerolinea(String cuit, String codIATA, String nombre, GregorianCalendar fecha) throws ExceptionAerolinea {
         this.cuit = cuit;
         CodIATA = codIATA.toUpperCase();
         this.nombre = capitalize(nombre);

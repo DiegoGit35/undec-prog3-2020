@@ -11,8 +11,8 @@ class AvionTest {
 
     @Test
     void test01GetMatricula() throws ExceptionAvion {
-        Avion a = new Avion("LV-AAA", "modelo1", 120, 2010);
-        assertEquals("LV-AAA", a.getMatricula());
+            Avion a = new Avion("LV-AAA", "modelo1", 120, 2010);
+            assertEquals("LV-AAA", a.getMatricula());
     }
 
     @Test
@@ -83,6 +83,7 @@ class AvionTest {
     }
 
 
+//    1. Cargar un avión nuevo
     @Test
     void test12AddAvion() throws ExceptionAvion {
         Aerolinea al = new Aerolinea();
@@ -98,21 +99,27 @@ class AvionTest {
         al.addAvion(a2);
         assertEquals(4, al.cantAviones());
     }
+
+//    4. Buscar un avión por matrícula
     @Test
     void test13BuscarAvion() throws ExceptionAvion {
-        Aerolinea al = new Aerolinea();
-        List<Avion> l1 = new ArrayList<Avion>();
-        Avion a = new Avion("LV-AAA", "modelo1", 120, 2010);
-        Avion a2 = new Avion("LV-AAB", "modelo2", 150, 2010);
-        Avion a3 = new Avion("LV-ABC", "modelo5", 100, 2010);
-        Avion a4 = new Avion("LQ-AAA", "modelo6", 80, 2010);
-        al.addAvion(a);
-        al.addAvion(a2);
-        al.addAvion(a3);
-        al.addAvion(a4);
-        l1.add(a);
-        assertEquals(l1, al.buscarAvionesxMatriculas("LV-AAA"));
-        l1.add(a2);
-        assertEquals(l1, al.buscarAvionesxMatriculas("LV-AA"));
+        try {
+            Aerolinea al = new Aerolinea();
+            List<Avion> l1 = new ArrayList<Avion>();
+            Avion a = new Avion("LV-AAA", "modelo1", 120, 2010);
+            Avion a2 = new Avion("LV-AAB", "modelo2", 150, 2010);
+            Avion a3 = new Avion("LV-ABC", "modelo5", 100, 2010);
+            Avion a4 = new Avion("LQ-AAA", "modelo6", 80, 2010);
+            al.addAvion(a);
+            al.addAvion(a2);
+            al.addAvion(a3);
+            al.addAvion(a4);
+            l1.add(a);
+            assertEquals(l1, al.buscarAvionesxMatriculas("LV-AAA"));
+            l1.add(a2);
+            assertEquals(l1, al.buscarAvionesxMatriculas("LV-AA"));
+        }catch (ExceptionAvion e){
+            fail();
+        }
     }
 }
